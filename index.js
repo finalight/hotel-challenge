@@ -97,12 +97,4 @@ Hotel.prototype.getHotelRate = function(hotel_name, customer_type, date_array) {
     });
     return total_pricing;
 }
-
-Array.prototype.contains = function(needle) {
-    for (i in this) {
-        if (this[i] == needle) return true;
-    }
-    return false;
-}
-
 module.exports = Hotel;

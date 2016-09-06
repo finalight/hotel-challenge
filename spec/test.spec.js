@@ -29,7 +29,7 @@ describe("Hotel room reservation test", function() {
         it("returns lakewood", function() {
             var hotel = new Hotel();
             var result = hotel.findCheapest('Rewards: 6Sep2016(tue), 7Sep2016(wed), 8Sep2016(thu)');
-            expect(result).toBe("lakewood");
+            expect(result).toBe("Lakewood");
         });
     });
 });
