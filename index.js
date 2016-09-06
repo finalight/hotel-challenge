@@ -6,6 +6,11 @@ function Hotel() {
 }
 
 Hotel.prototype.findCheapest = function (input) {
+	//split the text
+	var input_array = input.split(":")
+	var customer_type = input_array[0].trim();
+
+	console.log(customer_type);
     return this.hotels[0];
 }
 
