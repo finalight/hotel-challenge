@@ -2,7 +2,7 @@ var Hotel = require("../index")
 
 describe("Hotel room reservation test", function() {
     describe("input 16th to 18th march 2009", function() {
-        xit("returns lakewood", function() {
+        it("returns lakewood", function() {
             var hotel = new Hotel();
             var result = hotel.findCheapest('Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)');
             expect(result).toBe("Lakewood");
@@ -10,7 +10,7 @@ describe("Hotel room reservation test", function() {
     });
 
     describe("input 16th to 18th march 2009", function() {
-       xit("returns bridgewood", function() {
+       it("returns bridgewood", function() {
             var hotel = new Hotel();
             var result = hotel.findCheapest('Regular: 20Mar2009(fri), 21Mar2009(sat), 22Mar2009(sun)');
             expect(result).toBe("Bridgewood");
