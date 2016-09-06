@@ -40,10 +40,12 @@ Hotel.prototype.findCheapest = function(input) {
             return this.hotels[1];
         }
         return this.hotels[0];
-    } else if (lakewood_total == ridgewood_total) {
+    } else if (lakewood_total === ridgewood_total) {
         return this.hotels[2];
-    } else if (lakewood_total == bridgewood_total) {
+    } else if (lakewood_total === bridgewood_total) {
         return this.hotels[1];
+    } else if (bridgewood_total === ridgewood_total) {
+        return this.hotels[2];
     }
     return this.hotels[0]
 }
