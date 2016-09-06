@@ -5,13 +5,6 @@ function Hotel() {
     this.hotels = ['Lakewood', 'Bridgewood', 'Ridgewood'];
     this.weekdays = ['mon', 'tue', 'wed', 'thur', 'fri'];
     this.weekends = ['sat', 'sun'];
-    this.hotel_rates = [{
-        name: "Lakewood",
-        weekday_regular: 110,
-        weekday_reward: 80,
-        weekend_regular: 90,
-        weekend_reward: 80
-    }]
 }
 
 Hotel.prototype.findCheapest = function(input) {
@@ -31,6 +24,10 @@ Hotel.prototype.findCheapest = function(input) {
     lakewood_total = this.getHotelRate(this.hotels[0], customer_type, date_array);
     bridgewood_total = this.getHotelRate(this.hotels[1], customer_type, date_array);
     ridgewood_total = this.getHotelRate(this.hotels[2], customer_type, date_array);
+
+    console.log(lakewood_total);
+    console.log(bridgewood_total);
+    console.log(ridgewood_total);
 
     //find the minimum of the three hotel pricing
     if (lakewood_total > bridgewood_total) {
