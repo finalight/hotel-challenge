@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 function HotelMetaData() {
     return {
         hotels: [{
@@ -14,13 +16,12 @@ function HotelMetaData() {
             pricing: { regular: { weekday: 220, weekend: 150 }, rewards: { weekday: 100, weekend: 40 } }
         }],
         weekdays: ['mon', 'tues', 'wed', 'thur', 'fri'],
-        weekends: ['sun','sat']
+        weekends: ['sun', 'sat']
     }
 }
 
 
-function Hotel() {
-}
+function Hotel() {}
 
 Hotel.getDates = function(dates) {
     var hotelsInformation = HotelMetaData();
@@ -55,6 +56,7 @@ Hotel.prototype.getHotelRate = function(customer_type, date_array) {
     var hotelsInformation = HotelMetaData();
     var total_pricing = 0;
     var hotel_result;
+    var hotel_array = [];
 
     hotelsInformation.hotels.forEach(function(hotel) {
         total_pricing = 0;
@@ -62,19 +64,16 @@ Hotel.prototype.getHotelRate = function(customer_type, date_array) {
         date_array.forEach(function(date) {
             total_pricing += hotel.pricing[customer_type][date.day_type];
         });
-        if (hotel_result == undefined) {
-            hotel_result = { name: hotel.name, price: total_pricing, rating: hotel.rating };
-        } else {
-            if (hotel_result.price > total_pricing) {
-                hotel_result = { name: hotel.name, price: total_pricing, rating: hotel.rating };
-            } else if (hotel_result.price === total_pricing) {
-                if (hotel_result.rating < hotel.rating) {
-                    hotel_result = { name: hotel.name, price: total_pricing, rating: hotel.rating };
-                }
-            }
-        }
-    });
+        hotel_result = { name: hotel.name, price: total_pricing, rating: hotel.rating };
+        hotel_array.push(hotel_result)
 
-    return hotel_result;
+    });
+    return this.getHotelsRates(hotel_array);
 }
+
+Hotel.prototype.getHotelsRates = function(hotels) {
+    var hotel_result = _.orderBy(hotels, ['price','rating'], ['asc', 'desc']);
+    return hotel_result[0];
+}
+
 module.exports = Hotel;

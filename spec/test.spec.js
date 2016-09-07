@@ -28,7 +28,7 @@ describe("Hotel room reservation test", function() {
     describe("input 16th to 18th september 2016", function() {
         it("returns lakewood", function() {
             var hotel = new Hotel();
-            var result = hotel.findCheapest('Rewards: 6Sep2016(tue), 7Sep2016(wed), 8Sep2016(thu)');
+            var result = hotel.findCheapest('Rewards: 6Sep2016(tues), 7Sep2016(wed), 8Sep2016(thur)');
             expect(result).toBe("Lakewood");
         });
     });
