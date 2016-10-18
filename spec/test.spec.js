@@ -33,3 +33,18 @@ describe("Hotel room reservation test", function() {
         });
     });
 });
+
+describe("Get the cheapest hotel with the highest rating", function() {
+  var hotels = [
+    { name: "Hotel1", price: 100, rating: 5 },
+    { name: "Hotel2", price: 100, rating: 4 },
+    { name: "Hotel3", price: 90, rating: 4 },
+    { name: "Hotel4", price: 95, rating: 5 }
+  ];
+
+  it("should return the hotel with the lowest price with the highest rating", function() {
+    var hotel = new Hotel();
+    var result = hotel.getHotelsRates(hotels);
+    expect(result).toEqual({ name : 'Hotel3', price : 90, rating : 4 });
+  });
+});
